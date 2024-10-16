@@ -1,0 +1,12 @@
+# Ignore everything
+*
+
+# But not these files...
+!.gitignore
+!*.m
+!*.ini
+!*.md
+!*.xls
+
+# ...even if they are in subdirectories
+!*/
