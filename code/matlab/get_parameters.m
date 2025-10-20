@@ -1,10 +1,12 @@
 function parameters=get_parameters(expname)
 %% input values
+root_path = fullfile("..","..");
+par_path = fullfile(root_path,'inputparameters.xlsx');
 
-opts = detectImportOptions('inputparameters.xlsx');
+opts = detectImportOptions(par_path);
 opts.VariableNamingRule = 'preserve';
 
-file=readtable('inputparameters.xlsx',opts);
+file=readtable(par_path,opts);
 
 % rows = (matches(file.name,"b902") | matches(file.name,"b1137"));
 

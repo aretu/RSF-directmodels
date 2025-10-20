@@ -1,6 +1,8 @@
 close all
 clearvars
 
+benchmark_path=fullfile("..","..","benchmark");
+
 benchmark_list={
     "shale-08-02-02","Shale08ss_injection_rate_02_alpha_02.dat";...
     "shale-08-10-02","Shale08ss_injection_rate_10_alpha_02.dat";...
@@ -35,12 +37,12 @@ for j=1:size(benchmark_list,1)
     disp("Import and plot JR models")
 
     if contains (name2,'arbonate')
-        jr=JRcarb2mat(['benchmark\',name2]);
+        jr=JRcarb2mat(fullfile(benchmark_path,name2));
         jr(:,1)=jr(:,1)+parameters.TstartCreep; %fixes time delay
         jr(:,4)=jr(:,4)+shift; %fixes slip delay
 
     else
-        jr=JRshale2mat(['benchmark\',name2]);
+        jr=JRshale2mat(fullfile(benchmark_path,name2));
         jr(:,1)=jr(:,1)+shift; %fixes time delay
         jr(:,4)=jr(:,4)+shift; %fixes slip delay
 
@@ -51,7 +53,7 @@ for j=1:size(benchmark_list,1)
     % load and plot matlab model
     disp("Import and plot matlab models")
 
-    globaloutput=load(['benchmark\',name,'model.mat']);
+    globaloutput=load(fullfile(benchmark_path,[name,'model.mat']));
     
     globaloutput=globaloutput.globaloutput;
 
@@ -63,7 +65,7 @@ for j=1:size(benchmark_list,1)
     juliamodel2 = false;
     try
         disp("Import and plot julia models")
-        juliamodel=importdata(['benchmark\',name,'rt.csv']);
+        juliamodel=importdata(fullfile(benchmark_path,[name,'rt.csv']));
         
         juliamodel=juliamodel.data;
 
@@ -75,7 +77,7 @@ for j=1:size(benchmark_list,1)
 
     try
         disp("Import and plot julia models")
-        juliamodel=importdata(['benchmark\',name,'.csv']);
+        juliamodel=importdata(fullfile(benchmark_path,[name,'.csv']));
         
         juliamodel=juliamodel.data;
 
@@ -164,8 +166,11 @@ for j=1:size(benchmark_list,1)
     
     %% possible savefigure function
     fig.Renderer="painters";
-    savefig(fig,['benchmark\plots\',name,'.fig'])
-    saveas(fig,['benchmark\plots\',name,'.svg'])
-    saveas(fig,['benchmark\plots\',name,'.png'])
+
+    
+
+    savefig(fig,fullfile(benchmark_path,"plots",[name,'.fig']))
+    saveas(fig,fullfile(benchmark_path,"plots",[name,'.svg']))
+    saveas(fig,fullfile(benchmark_path,"plots",[name,'.png']))
 
 end

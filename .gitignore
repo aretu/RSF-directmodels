@@ -3,9 +3,11 @@
 
 # But not these files...
 !.gitignore
+
 !*.m
-# !*.ini
-!*.md
+!*.jl
+!*.ipynb
+
 !*.xls
 
 # ...even if they are in subdirectories
