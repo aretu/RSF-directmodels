@@ -20,7 +20,7 @@ for k=2:size(S,1)
     
     subplot(2,4,k-1)
     hold on;
-    plot(output.Time,output.(S{k}))
+    plot(output.Time,output.(S{k}),'DisplayName',parameters.name,'LineWidth',parameters.lw)
     title(S{k})
 %     xline(parameters.TstartCreep,'--k','DisplayName','Onset of creep')
 %     xline(parameters.TstartInj,'--k','DisplayName','Onset of stepping')
