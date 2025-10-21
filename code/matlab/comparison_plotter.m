@@ -85,15 +85,15 @@ title('Figure 14 R23')
 figure(8)
 yyaxis left;
 hold on;
-plot(Time_min,Pf,'-c','DisplayName',['Pore pressure (MPa) ' parameters.name])
-plot(Time_min,Sigma_n_eff,'-m','DisplayName',['Effective normal stress (MPa) ' parameters.name])
-plot(Time_min,Tau,'-k','DisplayName',['Shear stress (MPa) ' parameters.name])
+plot(Time_min,Pf,'-c','DisplayName',strcat('Pore pressure (MPa) ', parameters.name))
+plot(Time_min,Sigma_n_eff,'-m','DisplayName',strcat('Effective normal stress (MPa) ', parameters.name))
+plot(Time_min,Tau,'-k','DisplayName',strcat('Shear stress (MPa) ', parameters.name))
 
 ylabel('Stress and pressure, Pa')
 
 yyaxis right;
 hold on;
-plot(Time_min,Tau./Sigma_n_eff,'-g','DisplayName',['Effective friction ' parameters.name])
+plot(Time_min,Tau./Sigma_n_eff,'-g','DisplayName',strcat('Effective friction ', parameters.name))
 
 xlabel('Time, min')
 legend

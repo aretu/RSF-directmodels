@@ -36,5 +36,5 @@ function output = ScuderiSSZLP(parameters)
     output=[SS;ZLP];
     
     output=[output,zeros(size(output,1),2)];
-    plotter(output)
+    plotter(output,parameters)
 end

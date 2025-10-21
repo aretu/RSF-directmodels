@@ -42,5 +42,5 @@ function output = SCreep(parameters)
     
     output=[CalcSSZLP;t,omega(:,2),omega(:,1),omega(:,3),omega(:,4),omega(:,5),zeros(size(omega,1),2)];
 
-    plotter(output)
+    plotter(output,parameters)
 end

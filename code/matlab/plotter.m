@@ -11,19 +11,19 @@ output.Porosity=input(:,6);
 output.Pfreservoir=input(:,7);
 output.Pffault=input(:,8);
 
-%% PLOTTING
+%% Plotting
 
 figure(1)
 S=fieldnames(output);
 
 for k=2:size(S,1)
-    
+
     subplot(2,4,k-1)
     hold on;
     plot(output.Time,output.(S{k}),'DisplayName',parameters.name,'LineWidth',parameters.lw)
     title(S{k})
-%     xline(parameters.TstartCreep,'--k','DisplayName','Onset of creep')
-%     xline(parameters.TstartInj,'--k','DisplayName','Onset of stepping')
+    %     xline(parameters.TstartCreep,'--k','DisplayName','Onset of creep')
+    %     xline(parameters.TstartInj,'--k','DisplayName','Onset of stepping')
 end
 
 end

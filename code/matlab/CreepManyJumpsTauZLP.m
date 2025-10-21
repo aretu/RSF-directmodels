@@ -25,7 +25,7 @@ function output = CreepManyJumpsTauZLP(vel0,state0,sstress0,disp0,porosity,tstar
     Comp=[t,omega(:,2),omega(:,3),omega(:,4),omega(:,1),omega(:,5)];
    
     Comp=[Comp,zeros(size(Comp,1),2)];
-    plotter(Comp)
+    plotter(Comp,parameters)
 
     for k=1:M
         vaftZLP=vafter2(Comp(end,2),Comp(end,5),Comp(end,5)+dtau,parameters); %vbefore,taubefore,tauafter
@@ -41,7 +41,7 @@ function output = CreepManyJumpsTauZLP(vel0,state0,sstress0,disp0,porosity,tstar
 
         Comp=[Comp,zeros(size(Comp,1),2)];
 
-        plotter(Comp)
+        plotter(Comp,parameters)
     
         disp(k)
     end
