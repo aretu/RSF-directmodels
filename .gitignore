@@ -5,9 +5,9 @@
 !.gitignore
 
 # Documentation and environment files
-!.md
-!.toml
-!.yml
+!*.md
+!*.toml
+!*.yml
 
 # Code files
 !*.m
