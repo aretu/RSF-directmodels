@@ -1,9 +1,12 @@
+using Pkg
+Pkg.activate(@__DIR__)
+
 include("myfunctions_reltime.jl")
 using CSV, XLSX, DataFrames, DifferentialEquations, Plots, Printf
 
 ## looping across a list of models
 
-analysis_name = "gsa-shiva-bg-lf"
+analysis_name = "gsa-shiva-bg-mlf"
 
 root_path=joinpath(@__DIR__, "..", "..")
 save_path=joinpath(root_path,"results",analysis_name)
